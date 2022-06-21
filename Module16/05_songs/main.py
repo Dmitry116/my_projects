@@ -9,5 +9,20 @@ violator_songs = [
     ['Blue Dress', 4.29],
     ['Clean', 5.83]
 ]
+new_play_list = []
+play = int(input('Сколько песен выбрать? '))
 
-# TODO здесь писать код
+for a in range(play):
+    count = 0
+    song = input(f'Название {a + 1} песни: ')
+    for i in violator_songs:
+        if song in i:
+            new_play_list.append(violator_songs[count][1])
+        count += 1
+
+minuts = 0
+for min in new_play_list:
+    minuts += min
+
+print('Общее время звучания песен:', round(minuts, 2))
+
