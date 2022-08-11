@@ -44,5 +44,21 @@ data = {
     ]
 }
 
+print('1 - ', data.keys())
+
+data['ETH']['total_diff'] = 100
+print('2 - ', data['ETH'])
+
+data['tokens'][0]['fst_token_info']['name'] = 'doge'
+print('3 - ', data['tokens'][0]['fst_token_info']['name'])
+
+data['ETH']['total_out'] = data['tokens'][0]['total_out']
+data['tokens'][0].pop('total_out')
+print('4 - ', data['ETH'])
+print('4 - ', data['tokens'][0])
+
+data['tokens'][1]['sec_token_info']['total_price'] =data['tokens'][1]['sec_token_info']['price']
+data['tokens'][1]['sec_token_info'].pop('price')
+print('5 - ', data['tokens'][1]['sec_token_info'])
 
 # TODO здесь писать код

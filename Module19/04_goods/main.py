@@ -23,5 +23,14 @@ store = {
         {'quantity': 43, 'price': 97},
     ],
 }
+for goods_name, goods_code in goods.items():
+    total_price = 0
+    total_product = 0
+    for i_store in store[goods_code]:
+        total_product += i_store['quantity']
+        total_price += i_store['quantity'] * i_store['price']
+
+    print(goods_name, ' - ', total_product, 'стоимостью', total_price , 'рубля')
 
 # TODO здесь писать код
+
