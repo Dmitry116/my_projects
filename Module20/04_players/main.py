@@ -4,4 +4,9 @@ players = {
     ("Rob", "Bobbin"): (12, 8, 2)
 }
 
+tuple_players = [names + value for names, value in players.items()]
+print(tuple_players )
+
+
+
 # TODO здесь писать код
