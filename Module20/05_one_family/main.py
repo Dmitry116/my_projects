@@ -8,6 +8,7 @@ def rename_female(name):
             female_list.append(i_name)
     return female_list
 
+
 def rename_male(name):
     male_list = []
     name = name.replace(value, key)
@@ -15,6 +16,7 @@ def rename_male(name):
         if name in i_name:
             male_list.append(i_name)
     return male_list
+
 
 family = {
 ('Сидоров', 'Никита'): 35,
