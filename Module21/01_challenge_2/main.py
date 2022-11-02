@@ -1,5 +1,6 @@
 # TODO здесь писать код
 
+
 def print_numbers(start, num):
     if num <= 0:
         return 1
