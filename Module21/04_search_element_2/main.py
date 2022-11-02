@@ -1,5 +1,4 @@
 # TODO здесь писать код
-
 site = {
     'html': {
         'head': {
@@ -12,6 +11,7 @@ site = {
         }
     }
 }
+
 
 def search_element(data, tag, num=0):
     result = None
@@ -26,6 +26,8 @@ def search_element(data, tag, num=0):
     if result:
         return result
 
+
+flag = True
 question = input('Хотите ввести максимальную глубину? Y/N: ').lower()
 if question == 'y':
     number = int(input('Введите максимальную глубину: '))

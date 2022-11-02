@@ -1,12 +1,10 @@
 # TODO здесь писать код
 
 def print_numbers(start, num):
-
     if num <= 0:
         return 1
     print(start)
     start += 1
-
     return print_numbers(start, num-1)
 
 

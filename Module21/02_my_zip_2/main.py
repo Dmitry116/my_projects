@@ -1,6 +1,7 @@
 # TODO здесь писать код
 import random
 
+
 def random_numbers():
     return  [random.randint(0, 10) for _ in range(10)]
 

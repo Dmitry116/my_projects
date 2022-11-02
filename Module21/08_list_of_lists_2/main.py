@@ -3,6 +3,7 @@ nice_list = [1, 2, [3, 4], [[5, 6, 7], [8, 9, 10]],
 
 list_num = []
 
+
 def separ_numbers(number):
     for num in number:
         if isinstance(num, list):

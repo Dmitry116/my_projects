@@ -1,29 +1,20 @@
-def factorial(num):
-    if num == 1:
-        return num
-    num_fact = factorial(num-1)
-    return num * num_fact
+num_fact = {}
+while True:
+
+    def calculating_math_func(data, num_fact=None):
+        result = 1
+        if data in num_fact:
+            result = num_fact[data]
+
+        else:
+            for index in range(1, data + 1):
+                result *= index
+        num_fact[data] = (result)
+        result /= data ** 3
+        result = result ** 10
+        return result
 
 
-def divizion_num(num, num_2):
-    num_dvzn = num / (num_2 ** 3)
-    return num_dvzn
-
-
-def exp(num_dvzn):
-    result = num_dvzn ** 10
-    return result
-
-
-def display(result):
-    print(result)
-
-
-number = 3
-num_fact = factorial(number)
-division = divizion_num(num_fact, number)
-exp_num = exp(division)
-display(exp_num)
-
-
-# TODO оптимизировать функцию
+    num = int(input('Введите число: '))
+    print(calculating_math_func(num, num_fact))
+    print(num_fact)
