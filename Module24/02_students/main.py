@@ -2,7 +2,7 @@
 
 
 class Student:
-    def __init__(self, name, number_groop, grades,  average_grades):
+    def __init__(self, name, number_groop, grades, average_grades):
         self.name = name
         self.number_groop = number_groop
         self.grades_student = grades
@@ -60,5 +60,3 @@ for i_index in range(len(sorted_list_student)):
     average_grade = sorted_list_student[i_index][3]
     student = Student(name, group, grades, average_grade)
     student.info_students()
-
-
