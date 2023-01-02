@@ -149,12 +149,11 @@ woman = Human('Мария', 50)
 
 
 count_days = 1
-day = 'день'
 while count_days != 10:
     print(f'\033[31mДень {count_days}-й.\033[0m')
     for people in (man, woman):
 
-        #next_step = input('Нажмите Enter чтобы продолжить.')
+        next_step = input('Нажмите Enter чтобы продолжить.')
         people.print_info()
         if people.healphy <= 20:
             print('Хочу есть! ')

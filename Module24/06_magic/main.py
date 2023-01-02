@@ -61,7 +61,6 @@ class Earth:
 class Storm:
     def __str__(self):
         storm = 'Шторм'
-
         return storm
 
 
