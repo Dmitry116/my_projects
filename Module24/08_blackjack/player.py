@@ -3,31 +3,35 @@ from cards import Cards
 
 
 class Player:
-    count_points = {}
-
     def __init__(self, name):
         self.name = name
+        self.deck = Cards()
         self.cards = []
 
     """Добавление карт игроку"""
     """Удаление карт из колоды"""
 
     def add_cards(self, player_cards):
-        num = random.randint(0, 51)
-        if not num in Cards.cards:  # если карты нет в колоде, запускается рекурсия
-            self.add_cards(player_cards)
-        else:
-            self.cards.append(Cards.cards[num])  # добавляем карту игроку
-            if self.name in Player.count_points:
-                Player.count_points[self.name] += Cards.cards[num][1]  # добавляются очки карты игроку
+        num = -1
+        while num not in self.deck.cards:
+            num = random.randint(0, 51)
+        self.cards.append(self.deck.cards[num])  # добавляем карту игроку
+        del Cards.cards[num]  # удаление карты из колоды которую добавили игроку
+
+    def count_score(self):
+        score = 0
+        self.cards.sort(key=lambda x: x[1])
+        for card in self.cards:
+            if 'A' in card[0]:
+                if score + card[1] > 21:
+                    score += 1
+                else:
+                    score += card[1]
             else:
-                Player.count_points[self.name] = Cards.cards[num][1]  # добавляются очки карты игроку
-            del Cards.cards[num]  # удаление карты из колоды которую добавили игроку
+                score += card[1]
+        return score
 
     def print(self):
         print(f'Имя: {self.name}\n'
               f'Карты: {[i[0] for i in self.cards]}\n'
-              f'Кол-во очков: {self.count_points[self.name]}\n')
-
-    def __str__(self):
-        return f'{self.name}'
+              f'Кол-во очков: {self.count_score()}\n')
