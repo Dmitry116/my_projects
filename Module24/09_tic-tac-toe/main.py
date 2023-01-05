@@ -46,7 +46,7 @@ class Player:
               'Фишка: {}\n'.format(self.name, self.dice))
 
     def __str__(self):
-        return f'{self.name}'
+        return self.name
 
 
 class Game:

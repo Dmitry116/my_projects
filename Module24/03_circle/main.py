@@ -1,44 +1,41 @@
-# TODO здесь писать код
-class Circle:
+import math
 
-    def __init__(self, name, x, y, r):
-        self.name = name
+
+class Circle:
+    pi = 3.14159
+
+    def __init__(self, x, y, r):
         self.x = x
         self.y = y
         self.r = r
 
-    def print(self):
-        print('Name: {}\n'
-              'Центр круга:\n'
-              'X: {}\n'
-              'Y: {}\n'
-              'R: {}\n'.format(self.name, self.x, self.y, self.r))
+    def area_circle(self):
+        """"Площадь круга"""
+        return self.pi * self.r ** 2
 
-    """Вычисление занимаемых координат"""
+    def long_circumference(self):
+        """Длинна окружности"""
+        return 2 * self.pi * self.r
 
-    def circle_board(self):
-        self.x_1 = self.x + self.r
-        self.x_2 = self.x - self.r
-        self.y_1 = self.y + self.r
-        self.y_2 = self.y - self.r
+    def radius_increase(self, num):
+        """Увеличение длинны окружности"""
+        self.r *= num
 
-    def print_R(self):
-        print('Занимаемые координаты:\n'
-              'X_1: {}\n'
-              'X_2: {}\n'
-              'Y_1: {}\n'
-              'Y_2: {}\n'.format(self.x_1, self.x_2, self.y_1, self.y_2))
+    def is_intersect(self, other_circle):
+        if self.x == other_circle.x and self.y == other_circle.y:
+            print('окружности совпадают')
+            return self.r == other_circle.r
 
-    def check_circles(self):
-        pass
+        centers_distance = math.sqrt(
+            (self.x - other_circle.x) ** 2 + (self.y - other_circle.y) ** 2)
+        if self.r + other_circle.r - centers_distance < (self.r + other_circle.r) ** 2:
+            if abs(self.r - other_circle.r) - centers_distance < (self.r + other_circle.r) ** 2:
+                print('радиусы не совпадают')
+                return True
+        return False
 
 
-circle_1 = Circle('Круг-1', 0, 0, 1)
-circle_1.circle_board()
-circle_1.print()
-circle_1.print_R()
+circle_1 = Circle(0, 1, 2)
+circle_2 = Circle(0, 0, 1)
 
-circle_2 = Circle('Круг-2', 2, 2, 4)
-circle_2.circle_board()
-circle_2.print()
-circle_2.print_R()
+print(circle_1.is_intersect(circle_2))
