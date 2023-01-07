@@ -27,7 +27,8 @@ class Human:
         '''Вредители уничтожают еду'''
         pests = random.randint(0, 2)
         if pests == 1:
-            Home.FOOD = 0
+            #Home.FOOD = 0
+            self.apartment.FOOD = 0
             print('На кухне побывали вредители...\n'
                   'Съели всю еду.\n')
 
@@ -140,8 +141,8 @@ class Human:
 
 
 new_appartment = Home()
-man = Human('Артем', 50)
-woman = Human('Мария', 50)
+man = Human('Артем', 50, new_appartment)
+woman = Human('Мария', 50, new_appartment)
 
 count_days = 1
 while count_days != 10:
