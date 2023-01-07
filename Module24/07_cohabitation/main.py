@@ -12,9 +12,10 @@ class Home:
 
 class Human:
 
-    def __init__(self, name, healphy):
+    def __init__(self, name, healphy, place_of_residence=None):
         self.name = name
         self.healphy = healphy
+        self.apartment = place_of_residence
 
     def print_info(self):
         print('Имя: {}\n'
@@ -22,18 +23,16 @@ class Human:
               'Кол-во денег: {}$\n'
               'Кол-во еды: {}\n'.format(self.name, self.healphy, Home.MONEY, Home.FOOD))
 
-    '''Вредители уничтожают еду'''
-
     def pests(self):
+        '''Вредители уничтожают еду'''
         pests = random.randint(0, 2)
         if pests == 1:
             Home.FOOD = 0
             print('На кухне побывали вредители...\n'
                   'Съели всю еду.\n')
 
-    '''Пополнение здоровья'''
-
     def eat(self):
+        '''Пополнение здоровья'''
         food = 20
         if Home.FOOD <= 0:
             print('Еда закочилась!')
@@ -53,9 +52,8 @@ class Human:
                   f'Кол-во здровья: {self.healphy}\n'
                   f'Еды осталось: {Home.FOOD}\n')
 
-    '''Пополнение денег'''
-
     def work(self):
+        '''Пополнение денег'''
         death = random.randint(1, 10)
         if death == 4:
             print(f'\033[31mВаш питомец {self.name} случайно погиб на работе...\033[0m')
@@ -75,9 +73,8 @@ class Human:
                       f'Потратил здоровье на работе: {healphy}\n'
                       f'Здровья осталось: {self.healphy}\n')
 
-    '''Обязательая игра'''
-
     def play(self):
+        '''Обязательая игра'''
         game = random.randint(0, 2)
         healphy = Game_message.message[game][1]
         self.healphy -= healphy
@@ -94,9 +91,8 @@ class Human:
             print(f'Потратил здоровье: {healphy}\n'
                   f'Здровья осталось: {self.healphy}\n')
 
-    '''Пополнение еды и возможное нападение грабителей'''
-
     def shooping(self):
+        '''Пополнение еды и возможное нападение грабителей'''
         robbers = random.randint(1, 5)
         food = 30
         money = 30
@@ -137,13 +133,13 @@ class Human:
             if self.healphy <= 20:
                 self.eat()
 
-    '''Закрывает игру с выводом прожитых дней'''
-
     def end_game(self):
+        '''Закрывает игру с выводом прожитых дней'''
         print(f'Кол-во прожитых совместных дней составило: {count_days}')
         raise SystemExit
 
 
+new_appartment = Home()
 man = Human('Артем', 50)
 woman = Human('Мария', 50)
 
