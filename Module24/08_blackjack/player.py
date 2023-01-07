@@ -1,11 +1,10 @@
 import random
-from cards import Cards
+from cards import *
 
 
 class Player:
     def __init__(self, name):
         self.name = name
-        self.deck = Cards()
         self.cards = []
 
     """Добавление карт игроку"""
@@ -13,10 +12,10 @@ class Player:
 
     def add_cards(self, player_cards):
         num = -1
-        while num not in self.deck.cards:
+        while num not in cards:
             num = random.randint(0, 51)
-        self.cards.append(self.deck.cards[num])  # добавляем карту игроку
-        del Cards.cards[num]  # удаление карты из колоды которую добавили игроку
+        self.cards.append(cards[num])  # добавляем карту игроку
+        del cards[num]  # удаление карты из колоды которую добавили игроку
 
     def count_score(self):
         score = 0
