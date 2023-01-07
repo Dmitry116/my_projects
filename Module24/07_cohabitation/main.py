@@ -4,30 +4,30 @@ from game_message import Game_message
 import random
 
 
-
-
-class Human:
+class Home:
+    """Кол-во еды и денег у персонажей общее."""
     FOOD = 50
     MONEY = 0
 
+
+class Human:
 
     def __init__(self, name, healphy):
         self.name = name
         self.healphy = healphy
 
-
     def print_info(self):
         print('Имя: {}\n'
               'Здоровье: {}\n'
               'Кол-во денег: {}$\n'
-              'Кол-во еды: {}\n'.format(self.name, self.healphy, Human.MONEY, Human.FOOD))
+              'Кол-во еды: {}\n'.format(self.name, self.healphy, Home.MONEY, Home.FOOD))
 
     '''Вредители уничтожают еду'''
 
     def pests(self):
         pests = random.randint(0, 2)
         if pests == 1:
-            Human.FOOD = 0
+            Home.FOOD = 0
             print('На кухне побывали вредители...\n'
                   'Съели всю еду.\n')
 
@@ -35,23 +35,23 @@ class Human:
 
     def eat(self):
         food = 20
-        if Human.FOOD <= 0:
+        if Home.FOOD <= 0:
             print('Еда закочилась!')
 
-        elif Human.FOOD < food:  # проверка чтобы еда не уходила в минус
-            self.healphy += Human.FOOD
-            Human.FOOD -= Human.FOOD
+        elif Home.FOOD < food:  # проверка чтобы еда не уходила в минус
+            self.healphy += Home.FOOD
+            Home.FOOD -= Home.FOOD
             print(f'Сходил(а) на кухню, поел.\n'
-                  f'Пополнил(а) здоровье на: {Human.FOOD}\n'
+                  f'Пополнил(а) здоровье на: {Home.FOOD}\n'
                   f'Кол-во здровья: {self.healphy}\n'
-                  f'Еды осталось: {Human.FOOD}\n')
+                  f'Еды осталось: {Home.FOOD}\n')
         else:
             self.healphy += food
-            Human.FOOD -= 20
+            Home.FOOD -= 20
             print(f'Сходил(а) на кухню, поел.\n'
                   f'Пополнил(а) здоровье на: {food}\n'
                   f'Кол-во здровья: {self.healphy}\n'
-                  f'Еды осталось: {Human.FOOD}\n')
+                  f'Еды осталось: {Home.FOOD}\n')
 
     '''Пополнение денег'''
 
@@ -68,7 +68,7 @@ class Human:
                 paid = random.randint(0, 2)
                 money = Work_message.message[paid][1]
                 healphy = 10
-                Human.MONEY += money
+                Home.MONEY += money
                 self.healphy -= healphy
                 print(f'{Work_message.message[paid][0]}\n'
                       f'Заработал денег: {money}$\n'
@@ -101,39 +101,39 @@ class Human:
         food = 30
         money = 30
         # проверка наличия денег для покупки еды
-        if Human.MONEY < money:
-            money = Human.MONEY
-            food = Human.MONEY
+        if Home.MONEY < money:
+            money = Home.MONEY
+            food = Home.MONEY
         if robbers == 1:
             win = random.randint(0, 1)
             print('По дороге в магазин, напали грабители.\n')
             if win == 0:
                 print('Отобрали все деньги и избили...\n')
                 self.healphy -= 20
-                Human.MONEY = 0
+                Home.MONEY = 0
                 if self.healphy <= 0:
                     print(f'\033[31mВаш питомец {self.name} погиб возле магазина...\033[0m')
                     man.end_game()
                 else:
                     self.eat()
             else:
-                Human.FOOD += food
-                Human.MONEY -= money
+                Home.FOOD += food
+                Home.MONEY -= money
                 print(f'Ваш питомец {self.name} смог отбиться от грабителей!\n'
                       f'Пополнил запасы еды на: {food}\n'
                       f'Потратил денег на еду: {money}$\n'
-                      f'Кол-во еды: {Human.FOOD}\n'
-                      f'Кол-во денег: {Human.MONEY}$\n')
+                      f'Кол-во еды: {Home.FOOD}\n'
+                      f'Кол-во денег: {Home.MONEY}$\n')
                 if self.healphy <= 20:
                     self.eat()
         else:
-            Human.FOOD += food
-            Human.MONEY -= money
+            Home.FOOD += food
+            Home.MONEY -= money
             print(f'Сегодня поход в магазин прошел спокойно.\n'
                   f'Пополнил запасы еды на: {food}\n'
                   f'Потратил денег на еду: {money}$\n'
-                  f'Кол-во еды: {Human.FOOD}\n'
-                  f'Кол-во денег: {Human.MONEY}$\n')
+                  f'Кол-во еды: {Home.FOOD}\n'
+                  f'Кол-во денег: {Home.MONEY}$\n')
             if self.healphy <= 20:
                 self.eat()
 
@@ -147,7 +147,6 @@ class Human:
 man = Human('Артем', 50)
 woman = Human('Мария', 50)
 
-
 count_days = 1
 while count_days != 10:
     print(f'\033[31mДень {count_days}-й.\033[0m')
@@ -158,10 +157,10 @@ while count_days != 10:
         if people.healphy <= 20:
             print('Хочу есть! ')
             people.eat()
-        if Human.FOOD <= 20:
+        if Home.FOOD <= 20:
             print('Пошел(а) за продуктами в магазин!')
             people.shooping()
-        if Human.MONEY <= 30:
+        if Home.MONEY <= 30:
             print('Мало денег. Надо найти работу!.')
             people.work()
 
@@ -169,7 +168,6 @@ while count_days != 10:
         people.play()
         people.pests()
     count_days += 1
-
 
 print(f'Ваши питомцы сумели выжить!\n'
       f'Кол-во дней составило: {count_days}')
