@@ -18,11 +18,11 @@ def sort_symbol(text_file, sort_file):
                 else:
                     symbol_dict[symbol] = 1
 
-    sort_symbol = sorted(symbol_dict)
-    for i_symbol in sort_symbol:
-        print(i_symbol, symbol_dict[i_symbol])
-        sort_file.write(str(i_symbol))
-        sort_file.write('\n')
+    # sort_symbol = sorted(symbol_dict)
+    # for i_symbol in sort_symbol:
+    #     print(i_symbol, symbol_dict[i_symbol])
+    #     sort_file.write(str(i_symbol))
+    #     sort_file.write('\n')
 
 
 
