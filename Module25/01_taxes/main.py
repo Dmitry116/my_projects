@@ -29,7 +29,7 @@ class CountryHouse(Property):
         super().__init__(worth)
 
 
-amount_money = int(input('Сколько у вас денег: '))
+amount_money = int(input('Введите количество имеющихся денег: '))
 
 worth_apartment = int(input('\nВведите стоимость квартиры: '))
 apartment = Apartment(worth_apartment)
