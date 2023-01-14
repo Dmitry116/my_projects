@@ -74,7 +74,7 @@ class Human:
         """Выводит информацио о персонаже"""
 
         print('Имя: {}\n'
-              '\033[31mСытость: {}\033[0m\n'
+              'Сытость: {}'
               'Счастье: {}\n'.format(self.name, self.human_satiety, self.human_happy))
 
     def end_game(self):
