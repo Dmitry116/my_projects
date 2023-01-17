@@ -45,6 +45,7 @@ manager.new_task("помыть посуду", 4)
 manager.new_task("отдохнуть", 1)
 manager.new_task("поесть", 2)
 manager.new_task("сдать дз", 2)
+print(manager.get_dict_task())
 
 for key, value in sorted(manager.get_dict_task().items()):
     new_stack.push(value)
