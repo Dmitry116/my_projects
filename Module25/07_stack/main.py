@@ -11,8 +11,18 @@ class TaskManager:
         else:
             self.dict_task[value] = [key]
 
+    def sort_dict(self):
+        """Сортирует ключи self.dict_task"""
+        sort_key = sorted(self.dict_task)
+        return sort_key
+
     def get_dict_task(self):
         return self.dict_task
+
+    def show_tasks(self):
+        #tasks = self.get_dict_task()
+        for key in self.sort_dict():
+            print(f'{key} {"; ".join(self.dict_task[key])}')
 
 
 class Stack:
@@ -45,7 +55,8 @@ manager.new_task("помыть посуду", 4)
 manager.new_task("отдохнуть", 1)
 manager.new_task("поесть", 2)
 manager.new_task("сдать дз", 2)
-print(manager.get_dict_task())
+
+manager.show_tasks()
 
 for key, value in sorted(manager.get_dict_task().items()):
     new_stack.push(value)
@@ -55,6 +66,3 @@ for _ in range(len(new_stack.get_list())):
     new_stack.get_stack()
 print('Стек пуст:', new_stack.isempty())
 
-# 1 отдохнуть
-# 2 поесть; сдать дз
-# 4 сделать уборку; помыть посуду
