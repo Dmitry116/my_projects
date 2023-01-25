@@ -4,29 +4,32 @@ class Property:
     def __init__(self, worth=0):
         self.worth = worth
 
-    def get_tax_car(self):
-        return self.worth / 200
+
+class Apartment(Property):
+
+    def __init__(self, worth):
+        super().__init__(worth)
 
     def get_tax_apartment(self):
         return self.worth / 1000
 
-    def get_tax_countru_hounse(self):
-        return self.worth / 500
-
-
-class Apartment(Property):
-    def __init__(self, worth):
-        super().__init__(worth)
-
 
 class Car(Property):
+
     def __init__(self, worth):
         super().__init__(worth)
+
+    def get_tax_car(self):
+        return self.worth / 200
 
 
 class CountryHouse(Property):
+
     def __init__(self, worth):
         super().__init__(worth)
+
+    def get_tax_countru_hounse(self):
+        return self.worth / 500
 
 
 amount_money = int(input('Введите количество имеющихся денег: '))
