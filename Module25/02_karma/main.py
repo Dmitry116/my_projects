@@ -21,7 +21,7 @@ class KillError(Exception):
 class DrunkError(Exception):
 
     def __init__(self):
-        super().__init__('Бухой!')
+        super().__init__('Алкоголь!')
 
 
 class CarCrashError(Exception):
