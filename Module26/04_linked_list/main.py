@@ -1,7 +1,7 @@
 # TODO здесь писать код
 class Node():
 
-    def __init__(self, data=None, next=None):
+    def __init__(self, data=None, next=None) -> None:
         self.data = data
         self.next = next
 
@@ -20,10 +20,10 @@ class Node():
 
 class LinkedList():
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.head = None
 
-    def append(self, data):
+    def append(self, data) -> None:
 
         """Добавления значений"""
 
@@ -49,7 +49,7 @@ class LinkedList():
             cur_node = cur_node.get_next()
         print('индекс вне диапазона')
 
-    def remove(self, index):
+    def remove(self, index) -> None:
 
         """Удаление элемента по индексу"""
 
