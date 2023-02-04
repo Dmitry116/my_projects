@@ -25,7 +25,7 @@ class LinkedList():
 
     def append(self, data) -> None:
 
-        """Добавления значений"""
+        """Adding values"""
 
         new_node = Node(data)
         cur_node = self.head
@@ -38,7 +38,7 @@ class LinkedList():
 
     def get(self, index):
 
-        """Получение элемента по индексу"""
+        """Getting an element by index"""
 
         cur_node = self.head
         count = 0
@@ -51,7 +51,7 @@ class LinkedList():
 
     def remove(self, index) -> None:
 
-        """Удаление элемента по индексу"""
+        """Removing an element by index"""
 
         cur_node = self.head
         count = 0
@@ -67,7 +67,7 @@ class LinkedList():
 
     def print_list(self):
 
-        """Выводит список элементов"""
+        """Returns a list of elements"""
 
         cur_node = self.head
         output = ''
@@ -82,8 +82,8 @@ my_list.append(10)
 my_list.append(20)
 my_list.append(30)
 
-print('Текущий список:', my_list.print_list())
-print('Получение третьего элемента:', my_list.get(2))
-print('Удаление второго элемента.')
+print('Current list:', my_list.print_list())
+print('Getting the third element:', my_list.get(2))
+print('Removing the second element.')
 my_list.remove(1)
-print('Новый список:', my_list.print_list())
+print('New list:', my_list.print_list())
