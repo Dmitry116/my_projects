@@ -3,7 +3,7 @@ import os
 
 
 # def gen_path(path):
-#     """находит фалы (.py) по указанной директории """
+#     """finds files (.py) in the specified directory"""
 #     for i_path in os.walk(path):
 #         for i_file in i_path[2]:
 #             print(i_path[0])
@@ -13,7 +13,7 @@ import os
 
 
 def gen_path(path):
-    """находит фалы (.py) по указанной директории """
+    """finds files (.py) in the specified directory"""
 
     for i_path in os.walk(path):
         for i_file in i_path[2]:
@@ -23,7 +23,7 @@ def gen_path(path):
 
 
 def open_file(item):
-    """открывает файлы и считает кол-во строк кода"""
+    """opens files and counts the number of lines of code"""
 
     count = 0
     with open(item, 'r', encoding='utf-8') as file_py:
@@ -33,7 +33,7 @@ def open_file(item):
                 continue
             else:
                 count += 1
-    return f'Всего строк кода: {count}'
+    return f'Total lines of code: {count}'
 
 
 path_to_project = os.path.abspath(os.path.join('..', '..', 'Module14'))
