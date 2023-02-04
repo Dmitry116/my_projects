@@ -4,8 +4,8 @@ import os
 
 def gen_files_path(path):
 
-    """создается файл directory_path.log куда записывается путь всех каталогов
-    os.walk(path) - проходит по всему каталогу указанному пути"""
+    """a directory_path.log file is created, where the path to all directories is written
+    os.walk(path) - traverses the entire directory at the specified path"""
 
     with open('directory_path.log', 'w', encoding='utf-8') as dir_path:
         for i_path in list(os.walk(path)):
